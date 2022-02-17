@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс Валют</title>
+</head>
+<body>
+    <!--Задание-->
+    <!--
+        Используя исключительно JS Сгенерируйте страницу курсов валют с приват банка и добавьте её в id root на странице inner.html
+файл находится в репозитории в папке к уроку CW.
+Курс должен выводить не менее 4 валют
+Пример USD 24.80 25.00
+    -->
+    <!--Курсы можно взять здесь-->
+    <!--https://api.privatbank.ua/p24api/exchange_rates?json&date=01.12.2014
+
+    -->
+
+    <!--Код вернуть с JS сюда-->
+    <div id="root"></div>
+    <script type="text/javascript">
+
+      const div = document.querySelector("#root");
+
+      class Currency {
+        constructor(a,b,c) {
+          this.name = a;
+          this.sale = b;
+          this.purchase = c;
+        }
+      };
+
+      const usd = new Currency("USD","15.70","15.35"),
+      eur = new Currency("EUR","20.00","19.20"),
+      rub = new Currency("RUB","0.32","0.28"),
+      plz = new Currency("PLZ","5.00","4.20");
+
+      const arr1 = [usd,eur,rub,plz];
+      arr1.forEach(item => {
+        const span = document.createElement("span");
+        span.style.display = "block";
+        span.innerHTML = `${item.name} ${item.sale} ${item.purchase}`;
+        div.append(span)
+      });
+
+    </script>
+
+</body>
+</html>
